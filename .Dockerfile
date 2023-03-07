@@ -8,4 +8,4 @@ RUN npm run build
 #STAGE 2
 FROM nginx:latest
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY --from=build /src/app/dist/lcb-frontend /usr/share/nginx/html
+COPY --from=build /src/app/dist/march8th /usr/share/nginx/html
