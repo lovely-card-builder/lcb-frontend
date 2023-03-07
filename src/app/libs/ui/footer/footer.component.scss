@@ -1,0 +1,16 @@
+@use 'assets/styles/vars/vars.offsets' as offsets;
+
+.footer {
+  max-height: 20vh;
+  padding: offsets.$padding-on-sides;
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .image-container {
+
+
+    }
+  }
+}
