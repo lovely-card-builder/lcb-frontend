@@ -25,6 +25,7 @@
     .footer-content {
       font-family: 'Nunito', cursive;
       font-size: 14px;
+      padding-top: 0.6rem;
 
       .text-right {
         text-align: right;
@@ -38,11 +39,12 @@
         gap: .5rem;
 
         a {
-          //text-decoration: none;
+          text-decoration: none;
           color: inherit;
         }
         li {
-          color: colors.$pink-medium;
+          //color: colors.$pink-dark;
+          color: #111;
           position: relative;
           padding-left: 30px;
 
