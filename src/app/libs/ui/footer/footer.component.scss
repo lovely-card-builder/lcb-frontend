@@ -1,16 +1,59 @@
-@use 'assets/styles/vars/vars.offsets' as offsets;
+@use '~src/assets/styles/vars/vars.offsets' as offsets;
+@use '~src/assets/styles/media/width' as width;
+@use '~src/assets/styles/colors/colors' as colors;
 
 .footer {
-  max-height: 20vh;
-  padding: offsets.$padding-on-sides;
+  height: 20vh;
 
   .container {
+    height: inherit;
     display: grid;
     grid-template-columns: 1fr 1fr;
 
     .image-container {
+      height: inherit;
+      overflow: hidden;
 
+      img {
+        transform: translate(10px, -10px);
+        scale: 1.1;
+        height: inherit;
+        width: auto;
+      }
+    }
 
+    .footer-content {
+      font-family: 'Nunito', cursive;
+      font-size: 14px;
+
+      .text-right {
+        text-align: right;
+      }
+
+      .list-inline {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        padding: 0 15% 25%;
+        gap: .5rem;
+
+        a {
+          //text-decoration: none;
+          color: inherit;
+        }
+        li {
+          color: colors.$pink-medium;
+          position: relative;
+          padding-left: 30px;
+
+          &::before {
+            content: "♥";
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+        }
+      }
     }
   }
 }

@@ -1,1 +1,8 @@
-$padding-on-sides: 2rem;
+@mixin padding-on-sides() {
+  padding-right: 2rem !important;
+  padding-left: 2rem !important;
+  @media only screen and (max-width: 425px) {
+    padding-right: 1rem !important;
+    padding-left: 1rem !important;
+  }
+}
