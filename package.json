@@ -18,10 +18,12 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "@types/three": "^0.149.0",
     "gsap": "^3.11.4",
     "js-sha512": "^0.8.0",
     "normalize.css": "^8.0.1",
     "rxjs": "~7.5.0",
+    "three": "^0.150.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
