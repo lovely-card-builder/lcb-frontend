@@ -6,7 +6,7 @@ import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 interface Particle { object: THREE.Group, rotationSpeed: THREE.Euler, direction: THREE.Vector3, spawnTime: number }
 
 @Component({
-  selector: 'app-three-leaves',
+  selector: 'lcb-three-leaves',
   templateUrl: './three-leaves.component.html',
   styleUrls: ['./three-leaves.component.scss']
 })

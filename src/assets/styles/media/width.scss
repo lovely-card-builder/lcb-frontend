@@ -1,0 +1,19 @@
+// Variables:
+
+$footerMaxWidth: 650px;
+
+
+// Mixins:
+
+@mixin max-width($maxWidth: $footerMaxWidth) {
+  @media only screen and (max-width: $maxWidth) {
+    @content;
+  }
+}
+
+@mixin min-width($minWidth: $footerMaxWidth) {
+  @media only screen and (min-width: $minWidth) {
+    @content;
+  }
+}
+

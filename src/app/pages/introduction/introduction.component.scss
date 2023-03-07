@@ -1,0 +1,27 @@
+.introduction-container {
+  font-family: 'Montserrat', serif;
+
+  .introduction-title {
+    text-align: center;
+  }
+
+  .introduction-description {
+    padding: 0 2rem;
+    text-align: center;
+    font-weight: 300;
+  }
+
+  .navigate-below-wrapper {
+    margin-top: 2.5rem;
+    height: 50vw;
+    display: flex;
+    justify-content: center;
+
+    img {
+      cursor: pointer;
+      z-index: -5;
+      height: 100%;transform: rotateZ(-45deg);
+      width: auto;
+    }
+  }
+}
