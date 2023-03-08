@@ -6,6 +6,9 @@ import { FooterComponent } from './footer/footer.component';
 import { NotSupportedComponent } from './not-supported/not-supported.component';
 import {RouterLinkWithHref} from "@angular/router";
 import { CardComponent } from './generator-card/card.component';
+import {FormsModule} from "@angular/forms";
+import { LoaderHeartComponent } from './loader-heart/loader-heart.component';
+import { ImageFrameComponent } from './image-frame/image-frame.component';
 
 const COMPONENTS = [
   HeaderComponent
@@ -16,18 +19,22 @@ const COMPONENTS = [
     COMPONENTS,
     FooterComponent,
     NotSupportedComponent,
-    CardComponent
+    CardComponent,
+    LoaderHeartComponent,
+    ImageFrameComponent
   ],
   imports: [
     CommonModule,
-    RouterLinkWithHref
+    RouterLinkWithHref,
+    FormsModule
   ],
   providers: [PageSectionService],
-  exports: [
-    COMPONENTS,
-    FooterComponent,
-    NotSupportedComponent,
-    CardComponent
-  ]
+    exports: [
+        COMPONENTS,
+        FooterComponent,
+        NotSupportedComponent,
+        CardComponent,
+        ImageFrameComponent
+    ]
 })
 export class UiModule { }

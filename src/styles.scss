@@ -22,3 +22,12 @@ html, body {
   opacity: 0;
   visibility: hidden;
 }
+
+.sr-only {
+  position: fixed;
+  left: -99999999rem;
+  opacity: 0;
+  top: 0;
+  max-width: 1px;
+  max-height: 1px;
+}

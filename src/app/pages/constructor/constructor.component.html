@@ -3,7 +3,6 @@
 
   <form #constructorForm
         class="constructor-form"
-        (ngSubmit)="onSubmit()"
   >
 
     <div class="constructor-form-item">
@@ -45,20 +44,24 @@
       <label class="constructor-form-item-label">Cards</label>
 
       <div class="cards-container">
-        <lcb-card *ngFor="let card of cards" (cardUpdated)="updateCards($event)"></lcb-card>
+        <lcb-card *ngFor="let card of cards"
+                  [card]="card"
+                  (uploadStarted)="onCardUploadStarted()"
+                  (uploadEnded)="onCardUploadEnded()"
+                  (cardDeleted)="deleteCardById($event)"
+        ></lcb-card>
       </div>
 
       <button class="add-card"
               (click)="addEmptyCard()"
               (keydown.enter)="addEmptyCard()"
-              (keydown.space)="addEmptyCard()"
       >
         +
       </button>
     </div>
 
     <button class="submit-button"
-            type="submit"
+            (click)="onSubmit($event)"
             [disabled]="isFormInvalid"
     >
       Generate

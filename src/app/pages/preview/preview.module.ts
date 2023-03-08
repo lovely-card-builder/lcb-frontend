@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PreviewComponent } from './preview.component';
 import {RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
+import {UiModule} from "../../libs/ui/ui.module";
 
 
 
@@ -10,15 +11,16 @@ import {FormsModule} from "@angular/forms";
   declarations: [
     PreviewComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild([
-      {
-        path: ':id',
-        component: PreviewComponent
-      }
-    ]),
-    FormsModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild([
+            {
+                path: ':id',
+                component: PreviewComponent
+            }
+        ]),
+        FormsModule,
+        UiModule
+    ]
 })
 export class PreviewModule { }

@@ -1,0 +1,54 @@
+@use '~src/assets/styles/colors/colors' as colors;
+
+.loading {
+  position: absolute;
+  inset: 0;
+  background: #ffffff33
+}
+
+.card-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  gap: 2rem;
+  background-color: #fff;
+  max-width: 250px;
+  margin: 0 auto;
+  border-radius: 10px;
+  //border: 2px solid #111;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+
+  .card-input-row {
+    flex-direction: column;
+    display: flex;
+    gap: .5rem;
+
+    label {
+      width: fit-content;
+    }
+
+    input {
+      padding: .5rem;
+      border-radius: 20px;
+
+      &[type="file"] {
+        border: 1px solid #111;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .delete-card {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.4rem;
+    background-color: transparent;
+    border: none;
+
+    img {
+      width: 18px;
+      height: auto;
+    }
+  }
+}

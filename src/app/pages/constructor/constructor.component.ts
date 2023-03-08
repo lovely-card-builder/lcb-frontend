@@ -2,6 +2,7 @@ import {Component, ElementRef, ViewChild} from '@angular/core';
 import {PostcardService} from "../../services/postcard.service";
 import {CreatePostcardDto} from "../../interfaces/create-postcard.dto";
 import {Card} from "../../libs/ui/generator-card/card.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-constructor',
@@ -15,45 +16,47 @@ export class ConstructorComponent {
   wishTo: string = '';
   wishText: string = '';
 
-  images: string[] = [];
   cards: Card[] = [];
 
+  pendingUploads = 0;
 
   isFormInvalid = true;
 
   constructor(
-    private _postcardService: PostcardService
+    private _postcardService: PostcardService,
+    private router: Router
   ) {
   }
 
-  onSubmit() {
-    console.log(this.form.nativeElement.checkValidity())
+  onSubmit($event: Event) {
+    $event.preventDefault();
+    $event.stopImmediatePropagation();
 
     if (!this.form) {
       return;
     }
 
-    // TODO: Remove before prod deploy.
-    return;
+    if (this.pendingUploads !== 0) {
+      alert('Uploading your images. Please wait.');
+      return;
+    }
 
     const dto: CreatePostcardDto = {
       wishFrom: this.wishFrom,
       wishTo: this.wishTo,
       wishText: this.wishText,
-      images: this.images
+      images: this.cards
     };
+
     this._postcardService.create(dto)
-      .subscribe((r) => alert('Created: ' + r))
+      .subscribe((newCollageId) => {
+        this.router.navigate(['preview', newCollageId]).then();
+      })
   }
 
 
   checkFormValidity() {
     this.isFormInvalid = !this.form.nativeElement.checkValidity();
-  }
-
-  updateCards(card: Card) {
-    const cardToUpdateIdx = this.cards.findIndex((value) => value.id = card.id);
-    this.cards[cardToUpdateIdx] = {...card};
   }
 
   addEmptyCard(): void {
@@ -62,5 +65,17 @@ export class ConstructorComponent {
       fileName: '',
       title: ''
     });
+  }
+
+  deleteCardById(cardId: string) {
+    this.cards = [...this.cards.filter(card => card.id !== cardId)];
+  }
+
+  onCardUploadStarted() {
+    this.pendingUploads++;
+  }
+
+  onCardUploadEnded() {
+    this.pendingUploads--;
   }
 }

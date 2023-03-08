@@ -1,0 +1,12 @@
+<div class="picture-frame-wrapper"
+     [class.white-frame]="frameUrl.includes('white')"
+>
+  <img [src]="'assets/images/img-frames/' + frameUrl"
+       alt="Picture frame"
+       aria-hidden="true"
+       role="presentation">
+
+  <div class="file-container"
+       [style.background-image]="'url(' + absoluteFilePath + ')'">
+  </div>
+</div>
