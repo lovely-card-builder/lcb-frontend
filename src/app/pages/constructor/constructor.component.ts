@@ -1,32 +1,42 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {PostcardService} from "../../services/postcard.service";
-import {FilesService} from "../../services/files.service";
 import {CreatePostcardDto} from "../../interfaces/create-postcard.dto";
-import {tap} from "rxjs";
+import {Card} from "../../libs/ui/generator-card/card.component";
 
 @Component({
   selector: 'app-constructor',
   templateUrl: './constructor.component.html',
   styleUrls: ['./constructor.component.scss']
 })
-export class ConstructorComponent implements OnInit {
+export class ConstructorComponent {
+  @ViewChild('constructorForm') form!: ElementRef<HTMLFormElement>;
+
   wishFrom: string = '';
   wishTo: string = '';
   wishText: string = '';
 
   images: string[] = [];
+  cards: Card[] = [];
+
+
+  isFormInvalid = true;
 
   constructor(
-    private _postcardService: PostcardService,
-    private _filesService: FilesService,
+    private _postcardService: PostcardService
   ) {
   }
 
-  ngOnInit(): void {
-  }
-
   onSubmit() {
-    let dto: CreatePostcardDto = {
+    console.log(this.form.nativeElement.checkValidity())
+
+    if (!this.form) {
+      return;
+    }
+
+    // TODO: Remove before prod deploy.
+    return;
+
+    const dto: CreatePostcardDto = {
       wishFrom: this.wishFrom,
       wishTo: this.wishTo,
       wishText: this.wishText,
@@ -36,26 +46,21 @@ export class ConstructorComponent implements OnInit {
       .subscribe((r) => alert('Created: ' + r))
   }
 
-  onFileSelected(event: Event) {
-    const fileInput = event.target as HTMLInputElement;
-    const files = (fileInput.files as FileList);
-    for (let i = 0; i < files.length; i++) {
-      const file: File = files[0];
-      this._filesService.uploadImage(file)
-        .subscribe({
-            next: (x) => {
-              console.log(x);
-              this.images.push(x)
-            }, error: error => {
-              console.error(error);
-            }, complete: () => {
-            }
-          }
-        );
-    }
+
+  checkFormValidity() {
+    this.isFormInvalid = !this.form.nativeElement.checkValidity();
   }
 
-  eraseInput($event: MouseEvent) {
-    ($event.target as HTMLInputElement).value = ''
+  updateCards(card: Card) {
+    const cardToUpdateIdx = this.cards.findIndex((value) => value.id = card.id);
+    this.cards[cardToUpdateIdx] = {...card};
+  }
+
+  addEmptyCard(): void {
+    this.cards.push({
+      id: '',
+      fileName: '',
+      title: ''
+    });
   }
 }

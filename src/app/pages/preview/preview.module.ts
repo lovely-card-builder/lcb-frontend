@@ -10,15 +10,15 @@ import {FormsModule} from "@angular/forms";
   declarations: [
     PreviewComponent
   ],
-    imports: [
-        CommonModule,
-        RouterModule.forChild([
-            {
-                path: '',
-                component: PreviewComponent
-            }
-        ]),
-        FormsModule
-    ]
+  imports: [
+    CommonModule,
+    RouterModule.forChild([
+      {
+        path: ':id',
+        component: PreviewComponent
+      }
+    ]),
+    FormsModule
+  ]
 })
 export class PreviewModule { }

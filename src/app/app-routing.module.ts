@@ -14,8 +14,12 @@ const ROUTES: Routes = [
     loadChildren: () => import('./pages/constructor/constructor.module').then(m => m.ConstructorModule)
   },
   {
-    path: ':id',
+    path: 'preview',
     loadChildren: () => import('./pages/preview/preview.module').then(m => m.PreviewModule)
+  },
+  {
+    path: '**',
+    redirectTo: ''
   }
 ]
 @NgModule({

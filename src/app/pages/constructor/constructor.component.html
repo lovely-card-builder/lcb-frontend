@@ -1,23 +1,67 @@
-<div>
-  <h1>Creating your awesome Postcard</h1>
+<div class="constructor">
+  <h1 class="constructor-title">Create your <span class="pink-highlight">gift</span></h1>
 
-  <form (ngSubmit)="onSubmit()">
-    <div>
-      <label for="wishFrom">From:</label>
-      <input type="text" id="wishFrom" name="wishFrom" [(ngModel)]="wishFrom" required>
+  <form #constructorForm
+        class="constructor-form"
+        (ngSubmit)="onSubmit()"
+  >
+
+    <div class="constructor-form-item">
+      <label class="constructor-form-item-label" for="wishTo">Capital</label>
+      <input class="constructor-form-item-input"
+             type="text"
+             id="wishTo"
+             name="wishTo"
+             [(ngModel)]="wishTo"
+             (change)="checkFormValidity()"
+             required
+      />
     </div>
-    <div>
-      <label for="wishTo">To:</label>
-      <input type="text" id="wishTo" name="wishTo" [(ngModel)]="wishTo" required>
+
+    <div class="constructor-form-item">
+      <label class="constructor-form-item-label" for="wishText">Foreword</label>
+      <textarea class="constructor-form-item-input"
+                id="wishText"
+                name="wishText"
+                [(ngModel)]="wishText"
+                (change)="checkFormValidity()"
+                required
+      ></textarea>
     </div>
-    <div>
-      <label for="wishText">Wish:</label>
-      <textarea id="wishText" name="wishText" [(ngModel)]="wishText" required></textarea>
+
+    <div class="constructor-form-item">
+      <label class="constructor-form-item-label" for="wishFrom">From</label>
+      <input class="constructor-form-item-input"
+             type="text"
+             id="wishFrom"
+             name="wishFrom"
+             [(ngModel)]="wishFrom"
+             (change)="checkFormValidity()"
+             required
+      />
     </div>
-    <div>
-      <label for="images">Images:</label>
-      <input type="file" id="images" name="images" accept="image/*" multiple (click)="eraseInput($event)" (change)="onFileSelected($event)">
+
+    <div class="constructor-form-item">
+      <label class="constructor-form-item-label">Cards</label>
+
+      <div class="cards-container">
+        <lcb-card *ngFor="let card of cards" (cardUpdated)="updateCards($event)"></lcb-card>
+      </div>
+
+      <button class="add-card"
+              (click)="addEmptyCard()"
+              (keydown.enter)="addEmptyCard()"
+              (keydown.space)="addEmptyCard()"
+      >
+        +
+      </button>
     </div>
-    <button type="submit">Submit</button>
+
+    <button class="submit-button"
+            type="submit"
+            [disabled]="isFormInvalid"
+    >
+      Generate
+    </button>
   </form>
 </div>

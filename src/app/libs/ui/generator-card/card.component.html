@@ -1,0 +1,12 @@
+<label class="constructor-form-item-label" for="images">Images:</label>
+<input class="constructor-form-item-input"
+   type="file"
+   id="images"
+   name="images"
+   accept="image/*"
+   (click)="eraseInput($event)"
+   (change)="onFileSelected($event)"
+/>
+
+<label [for]="card.id + '-description'"></label>
+<input type="text" name="card-description" [id]="card.id + '-description'">
