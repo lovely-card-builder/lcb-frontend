@@ -156,12 +156,6 @@ export class ThreeLeavesComponent implements OnInit {
     p.object.translateY(p.direction.y);
     p.object.translateZ(p.direction.z);
 
-    // let pX = p.object.position.x;
-    // let pY = p.object.position.y;
-    // let pZ = p.object.position.z;
-
-    // console.log([pX, pY,pZ])
-
     let x = p.object.rotation.x + p.rotationSpeed.x
     let y = p.object.rotation.y + p.rotationSpeed.y
     let z = p.object.rotation.z + p.rotationSpeed.z;

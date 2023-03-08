@@ -14,6 +14,10 @@ const ROUTES: Routes = [
     loadChildren: () => import('./pages/constructor/constructor.module').then(m => m.ConstructorModule)
   },
   {
+    path: 'how',
+    loadChildren: () => import('./pages/how-it-was-made/how-it-was-made.module').then(m => m.HowItWasMadeModule)
+  },
+  {
     path: 'preview',
     loadChildren: () => import('./pages/preview/preview.module').then(m => m.PreviewModule)
   },
