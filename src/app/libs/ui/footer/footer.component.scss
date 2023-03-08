@@ -4,6 +4,7 @@
 
 .footer {
   height: 20vh;
+  max-width: width.$notSupportedWidth;
 
   .container {
     height: inherit;
@@ -35,7 +36,8 @@
         display: flex;
         flex-direction: column;
         list-style: none;
-        padding: 0 15% 25%;
+        padding: 0 15% 0 25%;
+        margin: 0;
         gap: .5rem;
 
         a {
@@ -43,7 +45,6 @@
           color: inherit;
         }
         li {
-          //color: colors.$pink-dark;
           color: #111;
           position: relative;
           padding-left: 30px;

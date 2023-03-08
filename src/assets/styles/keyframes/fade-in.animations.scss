@@ -1,0 +1,16 @@
+@mixin fade-in($direction: 'top', $delay: 0.3s) {
+  opacity: 0;
+  @if($direction == up) {
+    transform: translateY(-200px);
+  } @else {
+    transform: translateY(200px);
+  }
+  animation: appear $delay ease-out forwards;
+}
+
+@keyframes appear {
+  to {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
