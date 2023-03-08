@@ -17,11 +17,12 @@ export class UiVisibilityService {
   constructor(private route: ActivatedRoute, private router: Router) {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe(() => {
-        console.log(this.route.snapshot.url.join('/'))
-        if (this.route.snapshot.url.join('/') === '') {
-          this.isHeaderHidden$.emit(false);
-          this.isFooterHidden$.emit(false);
+      .subscribe((event) => {
+        if ((event as NavigationEnd).url.includes('/preview/')) {
+          this.isHeaderHidden$.emit(true);
+          this.isFooterHidden$.emit(true);
+        } else if ((event as NavigationEnd).url === '/constructor') {
+          this.isFooterHidden$.emit(true);
         }
       });
   }
