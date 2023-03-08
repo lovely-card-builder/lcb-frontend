@@ -22,7 +22,11 @@ export class UiVisibilityService {
           this.isHeaderHidden$.emit(true);
           this.isFooterHidden$.emit(true);
         } else if ((event as NavigationEnd).url === '/constructor') {
+          this.isHeaderHidden$.emit(false);
           this.isFooterHidden$.emit(true);
+        } else if ((event as NavigationEnd).url === '/') {
+          this.isHeaderHidden$.emit(false);
+          this.isFooterHidden$.emit(false);
         }
       });
   }

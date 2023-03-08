@@ -5,6 +5,7 @@ import {PageSectionService} from "./header/services/page-section.service";
 import { FooterComponent } from './footer/footer.component';
 import { NotSupportedComponent } from './not-supported/not-supported.component';
 import {RouterLinkWithHref} from "@angular/router";
+import { CardComponent } from './generator-card/card.component';
 
 const COMPONENTS = [
   HeaderComponent
@@ -14,17 +15,19 @@ const COMPONENTS = [
   declarations: [
     COMPONENTS,
     FooterComponent,
-    NotSupportedComponent
+    NotSupportedComponent,
+    CardComponent
   ],
   imports: [
     CommonModule,
     RouterLinkWithHref
   ],
   providers: [PageSectionService],
-    exports: [
-        COMPONENTS,
-        FooterComponent,
-        NotSupportedComponent
-    ]
+  exports: [
+    COMPONENTS,
+    FooterComponent,
+    NotSupportedComponent,
+    CardComponent
+  ]
 })
 export class UiModule { }
