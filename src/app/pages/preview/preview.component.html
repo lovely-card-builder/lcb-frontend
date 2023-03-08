@@ -1,1 +1,16 @@
-<p>preview works!</p>
+<div>
+  <div>
+    <input type="text" id="wishFrom" name="wishFrom" [(ngModel)]="postcard.wishFrom" required>
+  </div>
+  <div>
+    <input type="text" id="wishTo" name="wishTo" [(ngModel)]="postcard.wishTo" required>
+  </div>
+  <div>
+    <textarea id="wishText" name="wishText" [(ngModel)]="postcard.wishText" required></textarea>
+  </div>
+  <div>
+    <div *ngFor="let imageName of postcard.images">
+      <img [src]="getPathForImage(imageName)" alt="{{imageName}}">
+    </div>
+  </div>
+</div>

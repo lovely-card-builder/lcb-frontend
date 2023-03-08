@@ -1,1 +1,23 @@
+<div>
+  <h1>Creating your awesome Postcard</h1>
 
+  <form (ngSubmit)="onSubmit()">
+    <div>
+      <label for="wishFrom">From:</label>
+      <input type="text" id="wishFrom" name="wishFrom" [(ngModel)]="wishFrom" required>
+    </div>
+    <div>
+      <label for="wishTo">To:</label>
+      <input type="text" id="wishTo" name="wishTo" [(ngModel)]="wishTo" required>
+    </div>
+    <div>
+      <label for="wishText">Wish:</label>
+      <textarea id="wishText" name="wishText" [(ngModel)]="wishText" required></textarea>
+    </div>
+    <div>
+      <label for="images">Images:</label>
+      <input type="file" id="images" name="images" accept="image/*" multiple (click)="eraseInput($event)" (change)="onFileSelected($event)">
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>
