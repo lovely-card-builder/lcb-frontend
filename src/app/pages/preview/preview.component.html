@@ -1,5 +1,6 @@
 <div class="preview-loader" *ngIf="!areImagesLoaded">
   <h1>Your card is being prepared. Please, wait for a while...</h1>
+  <h2>If loading takes too much time, try <span class="pink-highlight">reloading</span>< the page.</h2>
   <div class="loader"></div>
 </div>
 
@@ -11,7 +12,6 @@
 
   <h2 id="intro-header">
     {{ postcard.wishTo }}
-    <!-- Text comes from TS. (uses postcard.wishTo) -->
   </h2>
 
   <h3 id="foreword">
