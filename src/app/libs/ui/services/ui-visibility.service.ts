@@ -18,6 +18,7 @@ export class UiVisibilityService {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
+        console.log(this.route.snapshot.url.join('/'))
         if (this.route.snapshot.url.join('/') === '') {
           this.isHeaderHidden$.emit(false);
           this.isFooterHidden$.emit(false);

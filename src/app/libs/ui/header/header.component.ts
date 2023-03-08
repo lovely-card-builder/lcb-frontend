@@ -23,7 +23,9 @@ export class HeaderComponent implements OnInit {
   }
 
   moveToHome(): void {
-    this.returnTitle();
+    this.router.navigate(['']).then(() => {
+      this.returnTitle();
+    });
   }
 
   moveToExamples(): void {
