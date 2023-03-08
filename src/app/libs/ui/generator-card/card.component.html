@@ -1,5 +1,9 @@
 <div class="card-wrapper">
 
+  <lcb-loader-heart *ngIf="isUploading"></lcb-loader-heart>
+
+  <div [class.loading]="isUploading" *ngIf="isUploading"></div>
+
   <button class="delete-card"
           (click)="deleteCard($event)"
           (keydown.enter)="deleteCard($event)"

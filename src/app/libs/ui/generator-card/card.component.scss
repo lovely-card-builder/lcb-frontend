@@ -1,5 +1,11 @@
 @use '~src/assets/styles/colors/colors' as colors;
 
+.loading {
+  position: absolute;
+  inset: 0;
+  background: #ffffff33
+}
+
 .card-wrapper {
   position: relative;
   display: flex;
