@@ -8,6 +8,7 @@ import {RouterLinkWithHref} from "@angular/router";
 import { CardComponent } from './generator-card/card.component';
 import {FormsModule} from "@angular/forms";
 import { LoaderHeartComponent } from './loader-heart/loader-heart.component';
+import { ImageFrameComponent } from './image-frame/image-frame.component';
 
 const COMPONENTS = [
   HeaderComponent
@@ -19,7 +20,8 @@ const COMPONENTS = [
     FooterComponent,
     NotSupportedComponent,
     CardComponent,
-    LoaderHeartComponent
+    LoaderHeartComponent,
+    ImageFrameComponent
   ],
   imports: [
     CommonModule,
@@ -27,11 +29,12 @@ const COMPONENTS = [
     FormsModule
   ],
   providers: [PageSectionService],
-  exports: [
-    COMPONENTS,
-    FooterComponent,
-    NotSupportedComponent,
-    CardComponent
-  ]
+    exports: [
+        COMPONENTS,
+        FooterComponent,
+        NotSupportedComponent,
+        CardComponent,
+        ImageFrameComponent
+    ]
 })
 export class UiModule { }

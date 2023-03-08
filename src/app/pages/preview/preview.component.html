@@ -3,19 +3,25 @@
   <div class="loader"></div>
 </div>
 
-<div class="preview">
-  <div>
-    <input type="text" id="wishFrom" name="wishFrom" [(ngModel)]="postcard.wishFrom" required>
-  </div>
-  <div>
-    <input type="text" id="wishTo" name="wishTo" [(ngModel)]="postcard.wishTo" required>
-  </div>
-  <div>
-    <textarea id="wishText" name="wishText" [(ngModel)]="postcard.wishText" required></textarea>
-  </div>
-  <div>
-    <div *ngFor="let image of postcard.images">
-      <img #image [src]="getPathForImage(image.fileName)" alt="{{image.fileName}}">
+<div class="preview"
+     [class.preview--animated]="areImagesLoaded"
+>
+
+  <h1 class="sr-only">Love card <span aria-hidden="true">{{ postcardId }}</span></h1>
+
+  <h2 id="intro-header">
+    {{ postcard.wishTo }}
+    <!-- Text comes from TS. (uses postcard.wishTo) -->
+  </h2>
+
+  <h3 id="foreword">
+    {{ postcard.wishText }}
+  </h3>
+
+  <main id="preview-cards-container" class="cards-container">
+    <div [id]="card.fileName + card.title" class="card" *ngFor="let card of postcard.images">
+      <lcb-image-frame [fileUrl]="card.fileName"></lcb-image-frame>
     </div>
-  </div>
+  </main>
+
 </div>
