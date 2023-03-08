@@ -1,0 +1,38 @@
+@import "src/assets/styles/colors/colors";
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $red-dark;
+  font-family: 'Montserrat', serif;
+}
+
+.devs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+a {
+  text-decoration: underline;
+  color: $red-dark;
+}
+
+li {
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  width: 80%;
+}
