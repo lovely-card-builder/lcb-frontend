@@ -5,6 +5,7 @@
 .footer {
   height: 20vh;
   max-width: width.$notSupportedWidth;
+  overflow: hidden;
 
   .container {
     height: inherit;

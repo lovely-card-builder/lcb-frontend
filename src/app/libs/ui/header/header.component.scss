@@ -1,6 +1,8 @@
 @use '~src/assets/styles/vars/vars.offsets' as offsets;
 @use '~src/assets/styles/media/width' as width;
 @use '~src/assets/styles/colors/colors' as colors;
+@use '~src/assets/styles/keyframes/drop.animations' as drop;
+@use '~src/assets/styles/keyframes/fade-in.animations' as fade-in;
 
 $header-height: 200px;
 
@@ -11,6 +13,7 @@ ul {
 }
 
 .header {
+  overflow: hidden;
   @include offsets.padding-on-sides;
   padding: 1rem 0;
   height: $header-height;
@@ -29,6 +32,7 @@ ul {
     position: absolute;
     left: 0;
     top: 0;
+    @include drop.drop-with-shake('down-right', .6s, 0);
 
     img {
       transform: rotate(-90deg);
@@ -54,6 +58,13 @@ ul {
         text-align: right;
         position: relative;
         padding-right: 30px;
+
+        @include fade-in.fade-in-from('right', 0.3s, 0.8s);
+        @for $i from 1 through 2 {
+          &:nth-child(#{$i + 1}) {
+            @include fade-in.fade-in-from('right', 0.3s, 0.8s + 0.3s * $i)
+          }
+        }
 
         &, .link-item {
           color: rgb(180, 50, 51);

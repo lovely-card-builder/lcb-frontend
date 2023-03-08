@@ -1,0 +1,28 @@
+@mixin drop-with-shake($direction: 'down-right', $duration: .6s, $delay: 0s) {
+  animation-duration: $duration;
+  animation-delay: $delay;
+  animation-timing-function: ease-out;
+  animation-fill-mode: backwards;
+
+  @if($direction == 'down-right') {
+    animation-name: drop-with-shake--down-right;
+  }
+}
+
+@keyframes drop-with-shake--down-right {
+  0% {
+    opacity: 0;
+    transform: rotateZ(50deg) translateY(-200px);
+  }
+  35% {
+    opacity: 1;
+  }
+  45% {
+    transform: rotateZ(-20deg) translateY(-20px) translateX(10px);
+    scale: 1.1;
+  }
+  100% {
+    scale: initial;
+    transform: rotateZ(0) translateY(0) translateX(0);
+  }
+}

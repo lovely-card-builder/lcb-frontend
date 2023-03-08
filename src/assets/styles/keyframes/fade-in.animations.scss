@@ -1,16 +1,59 @@
-@mixin fade-in($direction: 'top', $delay: 0.3s) {
-  opacity: 0;
-  @if($direction == up) {
-    transform: translateY(-200px);
-  } @else {
-    transform: translateY(200px);
+@mixin fade-in-from($directionFrom: 'top', $duration: 0.3s, $delay: 0.3s) {
+  animation-duration: $duration;
+  animation-delay: $delay;
+  animation-timing-function: ease-out;
+  animation-fill-mode: backwards;
+
+  @if($directionFrom == top) {
+    animation-name: appear-from-top;
+  } @else if ($directionFrom == bottom) {
+    animation-name: appear-from-bottom;
+  } @else if ($directionFrom == left) {
+    animation-name: appear-from-left;
+  } @else if ($directionFrom == right) {
+    animation-name: appear-from-right;
   }
-  animation: appear $delay ease-out forwards;
 }
 
-@keyframes appear {
-  to {
-    transform: translateY(0);
+@keyframes appear-from-top {
+  from {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+}
+
+@keyframes appear-from-bottom {
+  from {
+    transform: translateY(200px);
+    opacity: 0;
+  }
+}
+
+@keyframes appear-from-left {
+  from {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+}
+
+@keyframes appear-from-right {
+  from {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+}
+
+
+@mixin fade-in($duration: 0.3s, $delay: 0.3s) {
+  animation-duration: $duration;
+  animation-delay: $delay;
+  animation-timing-function: ease-out;
+  animation-fill-mode: backwards;
+  animation-name: fade-in;
+}
+
+@keyframes fade-in {
+  from {
     opacity: 0;
   }
 }
