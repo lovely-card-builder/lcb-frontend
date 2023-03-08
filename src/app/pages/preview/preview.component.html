@@ -9,8 +9,8 @@
     <textarea id="wishText" name="wishText" [(ngModel)]="postcard.wishText" required></textarea>
   </div>
   <div>
-    <div *ngFor="let imageName of postcard.images">
-      <img [src]="getPathForImage(imageName)" alt="{{imageName}}">
+    <div *ngFor="let image of postcard.images">
+      <img [src]="getPathForImage(image.fileName)" alt="{{image.fileName}}">
     </div>
   </div>
 </div>
