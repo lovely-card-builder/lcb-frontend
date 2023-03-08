@@ -1,4 +1,9 @@
-<div>
+<div class="preview-loader" *ngIf="!areImagesLoaded">
+  <h1>Your card is being prepared. Please, wait for a while...</h1>
+  <div class="loader"></div>
+</div>
+
+<div class="preview">
   <div>
     <input type="text" id="wishFrom" name="wishFrom" [(ngModel)]="postcard.wishFrom" required>
   </div>
@@ -10,7 +15,7 @@
   </div>
   <div>
     <div *ngFor="let image of postcard.images">
-      <img [src]="getPathForImage(image.fileName)" alt="{{image.fileName}}">
+      <img #image [src]="getPathForImage(image.fileName)" alt="{{image.fileName}}">
     </div>
   </div>
 </div>
