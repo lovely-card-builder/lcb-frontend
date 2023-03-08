@@ -34,11 +34,11 @@
       }
 
       .list-inline {
+        margin: 0;
         display: flex;
         flex-direction: column;
         list-style: none;
         padding: 0 15% 0 25%;
-        margin: 0;
         gap: .5rem;
 
         a {

@@ -1,10 +1,47 @@
 @use '~src/assets/styles/keyframes/fade-in.animations' as fade-in;
+@use '~src/assets/styles/vars/vars.offsets' as offsets;
+
+
+@keyframes slide-to-corner {
+  to {
+    top: 160px;
+    scale: 0.7;
+    transform: translateX(-10%);
+  }
+}
 
 .introduction-container {
   font-family: 'Montserrat', serif;
 
-  .introduction-title {
-    text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+
+  .header-wrapper {
+
+    .introduction-title {
+      text-align: center;
+
+      &:not(.invisible) {
+        transition: .65s;
+        z-index: 999;
+        white-space: nowrap;
+        position: fixed;
+        top: 30vh;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0;
+      }
+
+      &--moved {
+        top: 160px !important;
+        scale: 0.7;
+        transform: translateX(-10%) !important;
+      }
+    }
   }
 
   .introduction-description {
@@ -23,7 +60,6 @@
 
     img {
       cursor: pointer;
-      z-index: -5;
       height: 100%;
       transform: rotateZ(-45deg);
       width: auto;

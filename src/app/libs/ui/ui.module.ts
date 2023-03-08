@@ -4,6 +4,7 @@ import {HeaderComponent} from "./header/header.component";
 import {PageSectionService} from "./header/services/page-section.service";
 import { FooterComponent } from './footer/footer.component';
 import { NotSupportedComponent } from './not-supported/not-supported.component';
+import {RouterLinkWithHref} from "@angular/router";
 
 const COMPONENTS = [
   HeaderComponent
@@ -16,7 +17,8 @@ const COMPONENTS = [
     NotSupportedComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterLinkWithHref
   ],
   providers: [PageSectionService],
     exports: [
