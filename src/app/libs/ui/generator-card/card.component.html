@@ -1,12 +1,31 @@
-<label class="constructor-form-item-label" for="images">Images:</label>
-<input class="constructor-form-item-input"
-   type="file"
-   id="images"
-   name="images"
-   accept="image/*"
-   (click)="eraseInput($event)"
-   (change)="onFileSelected($event)"
-/>
+<div class="card-wrapper">
 
-<label [for]="card.id + '-description'"></label>
-<input type="text" name="card-description" [id]="card.id + '-description'">
+  <button class="delete-card"
+          (click)="deleteCard($event)"
+          (keydown.enter)="deleteCard($event)"
+  >
+    <img src="assets/icons/trash-can-solid.svg" alt="Delete Card"/>
+  </button>
+
+  <div class="card-input-row">
+    <label class="constructor-form-item-label" for="images">Image</label>
+    <input class="constructor-form-item-input"
+           type="file"
+           id="images"
+           name="images"
+           accept="image/*"
+           (click)="eraseInput($event)"
+           (change)="onFileSelected($event)"
+    />
+  </div>
+
+  <div class="card-input-row">
+    <label [for]="card.id + '-description'">Description (Optional)</label>
+    <input type="text"
+           [id]="card.id + '-description'"
+           name="card-description"
+           [(ngModel)]="card.title"
+    />
+  </div>
+
+</div>

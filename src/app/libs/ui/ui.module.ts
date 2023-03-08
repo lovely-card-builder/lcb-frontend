@@ -6,6 +6,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NotSupportedComponent } from './not-supported/not-supported.component';
 import {RouterLinkWithHref} from "@angular/router";
 import { CardComponent } from './generator-card/card.component';
+import {FormsModule} from "@angular/forms";
 
 const COMPONENTS = [
   HeaderComponent
@@ -20,7 +21,8 @@ const COMPONENTS = [
   ],
   imports: [
     CommonModule,
-    RouterLinkWithHref
+    RouterLinkWithHref,
+    FormsModule
   ],
   providers: [PageSectionService],
   exports: [

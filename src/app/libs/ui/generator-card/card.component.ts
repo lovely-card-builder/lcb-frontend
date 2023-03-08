@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {generateRandId} from "../../utils/ts/randomizer";
 import {FilesService} from "../../../services/files.service";
 
@@ -14,9 +14,9 @@ export interface Card {
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-  @Output() cardUpdated = new EventEmitter<Card>();
+  @Output() cardDeleted = new EventEmitter<string>();
 
-  card: Card = {
+  @Input() card: Card = {
     id: '',
     fileName: '',
     title: ''
@@ -51,4 +51,10 @@ export class CardComponent implements OnInit {
     ($event.target as HTMLInputElement).value = ''
   }
 
+  deleteCard($event: Event) {
+    $event.preventDefault();
+    $event.stopImmediatePropagation();
+
+    this.cardDeleted.emit(this.card.id);
+  }
 }

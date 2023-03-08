@@ -1,8 +1,14 @@
 @use '~src/assets/styles/colors/colors' as colors;
 
 .constructor {
-  padding: 0 1rem;
   font-family: 'Montserrat', cursive;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  padding: 0 1rem 3rem;
 
   &-title {
     text-align: center;
@@ -38,6 +44,7 @@
       .cards-container {
         display: flex;
         flex-direction: column;
+        gap: 1.5rem;
       }
 
       .add-card {
