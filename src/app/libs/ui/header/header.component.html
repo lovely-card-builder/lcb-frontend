@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header" *ngIf="!(isHeaderHidden$ | async)">
   <div aria-hidden="true" class="image-wrapper">
     <img role="presentation" src="assets/images/sakura_branch_3.png" alt="Sakura Tree">
   </div>
@@ -7,15 +7,21 @@
     <ul class="links-list">
 
       <li class="link-container">
-        <a class="link-item" [href]="pageSectionService.sectionsIds['home']">Home</a>
+        <a tabindex="0" class="link-item"
+           (keydown.enter)="moveToHome()"
+           (keydown.space)="moveToHome()"
+           (click)="moveToHome()">
+          Home
+        </a>
       </li>
 
       <li class="link-container">
-        <a class="link-item" [href]="pageSectionService.sectionsIds['examples']">Examples</a>
-      </li>
-
-      <li class="link-container">
-        <a class="link-item" [href]="pageSectionService.sectionsIds['create']">Create</a>
+        <a tabindex="0" class="link-item"
+           (keydown.enter)="navigateToConstructor()"
+           (keydown.space)="navigateToConstructor()"
+           (click)="navigateToConstructor()">
+          Create
+        </a>
       </li>
 
     </ul>

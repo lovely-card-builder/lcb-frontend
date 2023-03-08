@@ -1,8 +1,11 @@
+$big-padding: 2rem;
+$small-padding: 1rem;
+
 @mixin padding-on-sides() {
-  padding-right: 2rem !important;
-  padding-left: 2rem !important;
+  padding-right: $big-padding !important;
+  padding-left: $big-padding !important;
   @media only screen and (max-width: 425px) {
-    padding-right: 1rem !important;
-    padding-left: 1rem !important;
+    padding-right: $small-padding !important;
+    padding-left: $small-padding !important;
   }
 }

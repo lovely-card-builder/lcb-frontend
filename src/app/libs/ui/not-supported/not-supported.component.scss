@@ -1,0 +1,27 @@
+@use '~src/assets/styles/media/width' as width;
+
+.not-supported-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  font-family: 'Montserrat', cursive;
+
+  @include width.max-width(width.$notSupportedWidth) {
+    display: none !important;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 3rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+    padding: 2rem;
+    text-align: center;
+    font-weight: 400;
+  }
+}

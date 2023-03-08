@@ -1,9 +1,22 @@
 <div class="introduction-container">
-  <h1 id="home" class="introduction-title">Sweet <span class="pink-highlight">Tweets</span></h1>
+  <div class="header-wrapper">
+    <h1 aria-hidden="true" class="invisible introduction-title">Sweet <span class="pink-highlight">Tweets</span></h1>
+    <h1 id="home"
+        class="introduction-title"
+        [class.introduction-title--moved]="isTitleMoved$ | async">
+      Sweet <span class="pink-highlight">Tweets</span>
+    </h1>
+  </div>
 
   <h2 class="introduction-description">Create here the collages with photos and notes for a beloved one.</h2>
 
   <div class="navigate-below-wrapper">
-    <img tabindex="0" src="assets/images/arrow_navigating_line_downwards.png" alt="Go below">
+    <img tabindex="0"
+         (keydown.space)="moveToExamples()"
+         (keydown.enter)="moveToExamples()"
+         (click)="moveToExamples()"
+         src="assets/images/arrow_navigating_line_downwards.png"
+         alt="Go below"
+    />
   </div>
 </div>

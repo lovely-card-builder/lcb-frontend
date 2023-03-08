@@ -1,10 +1,17 @@
+@use '~src/assets/styles/media/width' as width;
+
 .app-layout {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
+  @include width.min-width(width.$notSupportedWidth) {
+    display: none;
+  }
+
   .content-wrapper {
+    position: relative;
     flex: 1;
   }
 }

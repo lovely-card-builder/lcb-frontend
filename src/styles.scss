@@ -17,3 +17,8 @@ html, body {
   color: colors.$pink-dark;
   font-weight: bold;
 }
+
+.invisible {
+  opacity: 0;
+  visibility: hidden;
+}
