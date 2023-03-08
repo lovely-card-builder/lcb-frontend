@@ -18,6 +18,7 @@ export class ConstructorComponent {
 
   cards: Card[] = [];
 
+  pendingUploads = 0;
 
   isFormInvalid = true;
 
@@ -34,6 +35,12 @@ export class ConstructorComponent {
     if (!this.form) {
       return;
     }
+
+    if (this.pendingUploads !== 0) {
+      alert('Uploading your images. Please wait.');
+      return;
+    }
+
     const dto: CreatePostcardDto = {
       wishFrom: this.wishFrom,
       wishTo: this.wishTo,
@@ -62,5 +69,13 @@ export class ConstructorComponent {
 
   deleteCardById(cardId: string) {
     this.cards = [...this.cards.filter(card => card.id !== cardId)];
+  }
+
+  onCardUploadStarted() {
+    this.pendingUploads++;
+  }
+
+  onCardUploadEnded() {
+    this.pendingUploads--;
   }
 }

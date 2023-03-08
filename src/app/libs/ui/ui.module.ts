@@ -7,6 +7,7 @@ import { NotSupportedComponent } from './not-supported/not-supported.component';
 import {RouterLinkWithHref} from "@angular/router";
 import { CardComponent } from './generator-card/card.component';
 import {FormsModule} from "@angular/forms";
+import { LoaderHeartComponent } from './loader-heart/loader-heart.component';
 
 const COMPONENTS = [
   HeaderComponent
@@ -17,7 +18,8 @@ const COMPONENTS = [
     COMPONENTS,
     FooterComponent,
     NotSupportedComponent,
-    CardComponent
+    CardComponent,
+    LoaderHeartComponent
   ],
   imports: [
     CommonModule,

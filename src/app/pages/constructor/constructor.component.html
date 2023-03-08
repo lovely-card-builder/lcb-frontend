@@ -46,6 +46,8 @@
       <div class="cards-container">
         <lcb-card *ngFor="let card of cards"
                   [card]="card"
+                  (uploadStarted)="onCardUploadStarted()"
+                  (uploadEnded)="onCardUploadEnded()"
                   (cardDeleted)="deleteCardById($event)"
         ></lcb-card>
       </div>
